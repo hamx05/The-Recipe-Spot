@@ -1,0 +1,559 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Recipe Spot - Discover Delicious Recipes</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Poppins:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+    <link rel="icon" type="image/png" href="../public/images/favicon.png">
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#FF7D45',
+                        primaryDark: '#E85F25',
+                        primaryLight: '#FFA07A',
+                        secondary: '#f8e3c5',
+                        background: '#FFFAF5',
+                        muted: '#f5e9d9',
+                        textPrimary: '#2D2013',
+                        textMuted: '#8a7a6d',
+                        destructive: '#e53e3e',
+                        success: '#10b981'
+                    },
+                    fontFamily: {
+                        sans: ['Poppins', 'sans-serif'],
+                        display: ['"Playfair Display"', 'serif']
+                    },
+                    boxShadow: {
+                        'soft': '0 10px 25px rgba(0, 0, 0, 0.05)',
+                        'hover': '0 15px 30px rgba(0, 0, 0, 0.1)'
+                    }
+                }
+            }
+        }
+    </script>
+    <link rel="stylesheet" href="../public/styles/index.css">
+
+</head>
+
+<body>
+    <div class="min-h-screen flex flex-col">
+        <!-- Header -->
+        <header class="bg-white border-b border-gray-100 sticky top-0 z-10 shadow-sm">
+            <div class="container mx-auto px-4 py-4 flex justify-between items-center">
+                <a href="index.html" class="flex items-center space-x-2 text-2xl font-bold text-primary heading-font">
+                    <img src="../public/images/favicon.png" alt="The Recipe Spot Logo" class="w-8 h-8">
+                    <span>The Recipe Spot</span>
+                </a>
+
+                <div class="flex items-center space-x-4">
+                    <a href="signin.html"
+                        class="hidden md:inline-flex items-center justify-center rounded-md text-sm font-medium h-10 px-4 py-2 btn-outline">
+                        Sign In
+                    </a>
+                    <a href="signup.html"
+                        class="inline-flex items-center justify-center rounded-md text-sm font-medium h-10 px-4 py-2 btn-primary">
+                        Sign Up
+                    </a>
+                </div>
+            </div>
+        </header>
+
+
+        <main class="flex-1">
+            <!-- Hero Section -->
+            <section class="w-full py-12 md:py-20 pattern-bg">
+                <div class="container mx-auto px-4 md:px-6">
+                    <div id="flash-message" class="hidden flash-message rounded-md p-4 mb-4"></div>
+
+                    <div class="grid gap-8 lg:grid-cols-[1fr_500px] lg:gap-12 items-center">
+                        <div class="flex flex-col justify-center space-y-6">
+                            <div class="space-y-4">
+                                <span
+                                    class="inline-block px-3 py-1 rounded-full bg-primary/10 text-primary text-sm font-medium">
+                                    Discover • Cook • Share
+                                </span>
+                                <h1
+                                    class="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tighter heading-font text-textPrimary">
+                                    Discover Delicious <span class="text-primary">Recipes</span> From Around The World
+                                </h1>
+                                <p class="max-w-[600px] text-textMuted md:text-lg">
+                                    Join our community of food lovers and explore thousands of recipes from various
+                                    cuisines. Learn, cook, and share your culinary creations.
+                                </p>
+                            </div>
+                            <div class="flex flex-col sm:flex-row gap-3">
+                                <a href="signup.html"
+                                    class="inline-flex items-center justify-center rounded-md text-sm font-medium h-12 px-6 py-3 btn-primary">
+                                    Get Started
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="ml-2 h-4 w-4" viewBox="0 0 24 24"
+                                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                        stroke-linejoin="round">
+                                        <path d="M5 12h14"></path>
+                                        <path d="m12 5 7 7-7 7"></path>
+                                    </svg>
+                                </a>
+                                <a href="signin.html"
+                                    class="inline-flex items-center justify-center rounded-md text-sm font-medium h-12 px-6 py-3 btn-outline">
+                                    Sign In
+                                </a>
+                            </div>
+                            <div class="flex items-center space-x-4 text-sm text-textMuted">
+                                <div class="flex -space-x-2">
+                                    <img src="https://randomuser.me/api/portraits/women/12.jpg" alt="User"
+                                        class="w-8 h-8 rounded-full border-2 border-white" />
+                                    <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="User"
+                                        class="w-8 h-8 rounded-full border-2 border-white" />
+                                    <img src="https://randomuser.me/api/portraits/women/23.jpg" alt="User"
+                                        class="w-8 h-8 rounded-full border-2 border-white" />
+                                </div>
+                                <span>Join <span class="font-medium text-primary">5,000+</span> food enthusiasts</span>
+                            </div>
+                        </div>
+                        <div class="mx-auto flex w-full max-w-[500px] items-center justify-center lg:justify-end">
+                            <!-- Enhanced Slideshow Container -->
+                            <div class="slideshow-container aspect-[4/5] w-full">
+                                <div class="slide active">
+                                    <img src="https://images.unsplash.com/photo-1606787366850-de6330128bfc?q=80&w=500&auto=format&fit=crop"
+                                        alt="Homemade pasta with fresh ingredients" class="rounded-xl">
+                                    <div class="slide-content">
+                                        <h3 class="text-lg font-medium">Homemade Pasta</h3>
+                                        <p class="text-sm opacity-80">Fresh ingredients, authentic flavors</p>
+                                    </div>
+                                </div>
+                                <div class="slide">
+                                    <img src="https://images.unsplash.com/photo-1476718406336-bb5a9690ee2a?q=80&w=500&auto=format&fit=crop"
+                                        alt="Rustic apple pie with cinnamon" class="rounded-xl">
+                                    <div class="slide-content">
+                                        <h3 class="text-lg font-medium">Rustic Apple Pie</h3>
+                                        <p class="text-sm opacity-80">Sweet, spiced, and everything nice</p>
+                                    </div>
+                                </div>
+                                <div class="slide">
+                                    <img src="https://images.unsplash.com/photo-1551218808-94e220e084d2?q=80&w=500&auto=format&fit=crop"
+                                        alt="Colorful Mediterranean salad" class="rounded-xl">
+                                    <div class="slide-content">
+                                        <h3 class="text-lg font-medium">Mediterranean Salad</h3>
+                                        <p class="text-sm opacity-80">Fresh, vibrant, and nutritious</p>
+                                    </div>
+                                </div>
+                                <div class="slide">
+                                    <img src="https://images.unsplash.com/photo-1515516969-d4008cc6241a?q=80&w=500&auto=format&fit=crop"
+                                        alt="Chocolate souffle dessert" class="rounded-xl">
+                                    <div class="slide-content">
+                                        <h3 class="text-lg font-medium">Chocolate Souffle</h3>
+                                        <p class="text-sm opacity-80">Decadent dessert perfection</p>
+                                    </div>
+                                </div>
+
+                                <!-- Slideshow Navigation -->
+                                <div class="slide-arrow prev">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                        stroke-linejoin="round">
+                                        <polyline points="15 18 9 12 15 6"></polyline>
+                                    </svg>
+                                </div>
+                                <div class="slide-arrow next">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                        stroke-linejoin="round">
+                                        <polyline points="9 18 15 12 9 6"></polyline>
+                                    </svg>
+                                </div>
+
+                                <div class="slide-nav">
+                                    <div class="slide-dot active" data-index="0"></div>
+                                    <div class="slide-dot" data-index="1"></div>
+                                    <div class="slide-dot" data-index="2"></div>
+                                    <div class="slide-dot" data-index="3"></div>
+                                </div>
+
+                                <!-- Progress bar for slideshow -->
+                                <div class="slideshow-progress"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Food Categories Section -->
+            <section class="w-full py-12 md:py-16">
+                <div class="container mx-auto px-4 md:px-6">
+                    <div class="flex flex-col items-center justify-center space-y-4 text-center mb-10">
+                        <span
+                            class="inline-block px-3 py-1 rounded-full bg-primary/10 text-primary text-sm font-medium">
+                            Explore Categories
+                        </span>
+                        <h2 class="text-3xl font-bold tracking-tighter md:text-4xl heading-font text-textPrimary">
+                            Explore Food Of All Categories
+                        </h2>
+                        <p class="max-w-[700px] text-textMuted md:text-lg">
+                            Browse through our collection of recipes organized by categories to find exactly what you're
+                            looking for.
+                        </p>
+                    </div>
+
+                    <div class="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6">
+                        <div class="category-card">
+                            <img src="https://images.unsplash.com/photo-1533089860892-a7c6f0a88666?q=80&w=300&auto=format&fit=crop"
+                                alt="Breakfast" class="w-full h-48 object-cover" />
+                            <div class="category-overlay">
+                                <h3 class="text-white font-medium text-lg">Breakfast</h3>
+                            </div>
+                        </div>
+                        <div class="category-card">
+                            <img src="https://images.unsplash.com/photo-1547592180-85f173990554?q=80&w=300&auto=format&fit=crop"
+                                alt="Lunch" class="w-full h-48 object-cover" />
+                            <div class="category-overlay">
+                                <h3 class="text-white font-medium text-lg">Lunch</h3>
+                            </div>
+                        </div>
+                        <div class="category-card">
+                            <img src="https://images.unsplash.com/photo-1574484284002-952d92456975?q=80&w=300&auto=format&fit=crop"
+                                alt="Dinner" class="w-full h-48 object-cover" />
+                            <div class="category-overlay">
+                                <h3 class="text-white font-medium text-lg">Dinner</h3>
+                            </div>
+                        </div>
+                        <div class="category-card">
+                            <img src="https://images.unsplash.com/photo-1587314168485-3236d6710814?q=80&w=300&auto=format&fit=crop"
+                                alt="Desserts" class="w-full h-48 object-cover" />
+                            <div class="category-overlay">
+                                <h3 class="text-white font-medium text-lg">Desserts</h3>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Features Section -->
+            <section class="w-full py-12 md:py-16 bg-muted/40">
+                <div class="container mx-auto px-4 md:px-6">
+                    <div class="flex flex-col items-center justify-center space-y-4 text-center mb-10">
+                        <span
+                            class="inline-block px-3 py-1 rounded-full bg-primary/10 text-primary text-sm font-medium">
+                            Why Join Us
+                        </span>
+                        <h2 class="text-3xl font-bold tracking-tighter md:text-4xl heading-font text-textPrimary">
+                            Why Join Our Recipe Community?
+                        </h2>
+                        <p class="max-w-[700px] text-textMuted md:text-lg">
+                            Discover the benefits of being part of our growing community of food enthusiasts.
+                        </p>
+                    </div>
+                    <div class="mx-auto grid max-w-5xl items-center gap-6 py-8 md:grid-cols-3">
+                        <div class="feature-card bg-white p-6 rounded-lg shadow-soft">
+                            <div
+                                class="mx-auto flex h-16 w-16 items-center justify-center rounded-full bg-primary/10 mb-4">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                                    fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                    stroke-linejoin="round" class="h-8 w-8 text-primary">
+                                    <path d="M14.5 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7.5L14.5 2z" />
+                                    <polyline points="14 2 14 8 20 8" />
+                                </svg>
+                            </div>
+                            <h3 class="text-xl font-bold mb-2 heading-font">Thousands of Recipes</h3>
+                            <p class="text-textMuted">
+                                Access our extensive collection of recipes from various cuisines around the world.
+                            </p>
+                        </div>
+                        <div class="feature-card bg-white p-6 rounded-lg shadow-soft">
+                            <div
+                                class="mx-auto flex h-16 w-16 items-center justify-center rounded-full bg-primary/10 mb-4">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                                    fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                    stroke-linejoin="round" class="h-8 w-8 text-primary">
+                                    <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2" />
+                                    <circle cx="9" cy="7" r="4" />
+                                    <path d="M22 21v-2a4 4 0 0 0-3-3.87" />
+                                    <path d="M16 3.13a4 4 0 0 1 0 7.75" />
+                                </svg>
+                            </div>
+                            <h3 class="text-xl font-bold mb-2 heading-font">Vibrant Community</h3>
+                            <p class="text-textMuted">
+                                Connect with other food lovers and share your culinary experiences and tips.
+                            </p>
+                        </div>
+                        <div class="feature-card bg-white p-6 rounded-lg shadow-soft">
+                            <div
+                                class="mx-auto flex h-16 w-16 items-center justify-center rounded-full bg-primary/10 mb-4">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                                    fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                    stroke-linejoin="round" class="h-8 w-8 text-primary">
+                                    <path
+                                        d="M12 3c.132 0 .263 0 .393 0a7.5 7.5 0 0 0 7.92 12.446a9 9 0 1 1 -8.313 -12.454z" />
+                                    <path d="M17 4a2 2 0 0 0 2 2a2 2 0 0 0 -2 2a2 2 0 0 0 -2 -2a2 2 0 0 0 2 -2" />
+                                    <path d="M19 11h2m-1 -1v2" />
+                                </svg>
+                            </div>
+                            <h3 class="text-xl font-bold mb-2 heading-font">Personalized Experience</h3>
+                            <p class="text-textMuted">
+                                Save your favorite recipes and get recommendations tailored to your taste preferences.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Replace the entire "Popular Recipes Section" with this: -->
+
+            <!-- Food Inspiration Gallery -->
+            <section class="w-full py-12 md:py-16 bg-muted/20">
+                <div class="container mx-auto px-4 md:px-6">
+                    <div class="flex flex-col items-center justify-center space-y-4 text-center mb-10">
+                        <span
+                            class="inline-block px-3 py-1 rounded-full bg-primary/10 text-primary text-sm font-medium">
+                            Visual Feast
+                        </span>
+                        <h2 class="text-3xl font-bold tracking-tighter md:text-4xl heading-font text-textPrimary">
+                            Food Inspiration Gallery
+                        </h2>
+                        <p class="max-w-[700px] text-textMuted md:text-lg">
+                            Let these stunning dishes awaken your culinary creativity.
+                        </p>
+                    </div>
+
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-6">
+                        <!-- Card 1 -->
+                        <div class="relative group overflow-hidden rounded-xl h-64 md:h-80">
+                            <img src="https://images.unsplash.com/photo-1544025162-d76694265947?q=80&w=400&auto=format&fit=crop"
+                                alt="Artisanal Bread"
+                                class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105">
+                            <div
+                                class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent flex items-end p-6">
+                                <h3 class="text-white text-xl font-medium heading-font">"Bake With Confidence"</h3>
+                            </div>
+                        </div>
+
+                        <!-- Card 2 -->
+                        <div class="relative group overflow-hidden rounded-xl h-64 md:h-80">
+                            <img src="https://images.unsplash.com/photo-1512621776951-a57141f2eefd?q=80&w=400&auto=format&fit=crop"
+                                alt="Colorful Salad"
+                                class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105">
+                            <div
+                                class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent flex items-end p-6">
+                                <h3 class="text-white text-xl font-medium heading-font">"Fresh & Vibrant"</h3>
+                            </div>
+                        </div>
+
+                        <!-- Card 3 -->
+                        <div class="relative group overflow-hidden rounded-xl h-64 md:h-80">
+                            <img src="https://images.unsplash.com/photo-1563805042-7684c019e1cb?q=80&w=400&auto=format&fit=crop"
+                                alt="Decadent Dessert"
+                                class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105">
+                            <div
+                                class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent flex items-end p-6">
+                                <h3 class="text-white text-xl font-medium heading-font">"Sweet Indulgence"</h3>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- ENHANCED FOOTER - MODIFIED SECTION -->
+            <footer class="footer-gradient border-t border-gray-100 py-12">
+                <div class="container mx-auto px-4 md:px-6">
+                    <!-- Main Footer Content - Redesigned Layout -->
+                    <div class="flex flex-col md:flex-row justify-between items-start gap-8 mb-10">
+                        <!-- Website Info - Enhanced with better spacing -->
+                        <div class="max-w-md space-y-4">
+                            <a href="index.html" class="text-2xl font-bold text-primary flex items-center heading-font">
+                                <img src="../public/images/favicon.png" alt="The Recipe Spot Logo" class="w-8 h-8 mr-2">
+                                <span>The Recipe Spot</span>
+                            </a>
+                            <p class="text-sm text-textMuted leading-relaxed">
+                                Your go-to place for discovering, cooking, and sharing delicious recipes from around the
+                                world.
+                            </p>
+                            <div class="flex space-x-3 pt-2">
+                                <a href="#" class="social-icon">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="currentColor"
+                                        viewBox="0 0 16 16">
+                                        <path
+                                            d="M16 8.049c0-4.446-3.582-8.05-8-8.05C3.58 0-.002 3.603-.002 8.05c0 4.017 2.926 7.347 6.75 7.951v-5.625h-2.03V8.05H6.75V6.275c0-2.017 1.195-3.131 3.022-3.131.876 0 1.791.157 1.791.157v1.98h-1.009c-.993 0-1.303.621-1.303 1.258v1.51h2.218l-.354 2.326H9.25V16c3.824-.604 6.75-3.934 6.75-7.951z" />
+                                    </svg>
+                                </a>
+                                <a href="#" class="social-icon">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="currentColor"
+                                        viewBox="0 0 16 16">
+                                        <path
+                                            d="M8 0C5.829 0 5.556.01 4.703.048 3.85.088 3.269.222 2.76.42a3.917 3.917 0 0 0-1.417.923A3.927 3.927 0 0 0 .42 2.76C.222 3.268.087 3.85.048 4.7.01 5.555 0 5.827 0 8.001c0 2.172.01 2.444.048 3.297.04.852.174 1.433.372 1.942.205.526.478.972.923 1.417.444.445.89.719 1.416.923.51.198 1.09.333 1.942.372C5.555 15.99 5.827 16 8 16s2.444-.01 3.298-.048c.851-.04 1.434-.174 1.943-.372a3.916 3.916 0 0 0 1.416-.923c.445-.445.718-.891.923-1.417.197-.509.332-1.09.372-1.942C15.99 10.445 16 10.173 16 8s-.01-2.445-.048-3.299c-.04-.851-.175-1.433-.372-1.941a3.926 3.926 0 0 0-.923-1.417A3.911 3.911 0 0 0 13.24.42c-.51-.198-1.092-.333-1.943-.372C10.443.01 10.172 0 7.998 0h.003zm-.717 1.442h.718c2.136 0 2.389.007 3.232.046.78.035 1.204.166 1.486.275.373.145.64.319.92.599.28.28.453.546.598.92.11.281.24.705.275 1.485.039.843.047 1.096.047 3.231s-.008 2.389-.047 3.232c-.035.78-.166 1.203-.275 1.485a2.47 2.47 0 0 1-.599.919c-.28.28-.546.453-.92.598-.28.11-.704.24-1.485.276-.843.038-1.096.047-3.232.047s-2.39-.009-3.233-.047c-.78-.036-1.203-.166-1.485-.276a2.478 2.478 0 0 1-.92-.598 2.48 2.48 0 0 1-.6-.92c-.109-.281-.24-.705-.275-1.485-.038-.843-.046-1.096-.046-3.233 0-2.136.008-2.388.046-3.231.036-.78.166-1.204.276-1.486.145-.373.319-.64.599-.92.28-.28.546-.453.92-.598.282-.11.705-.24 1.485-.276.738-.034 1.024-.044 2.515-.045v.002zm4.988 1.328a.96.96 0 1 0 0 1.92.96.96 0 0 0 0-1.92zm-4.27 1.122a4.109 4.109 0 1 0 0 8.217 4.109 4.109 0 0 0 0-8.217zm0 1.441a2.667 2.667 0 1 1 0 5.334 2.667 2.667 0 0 1 0-5.334z" />
+                                    </svg>
+                                </a>
+                                <a href="#" class="social-icon">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="currentColor"
+                                        viewBox="0 0 16 16">
+                                        <path
+                                            d="M5.026 15c6.038 0 9.341-5.003 9.341-9.334 0-.14 0-.282-.006-.422A6.685 6.685 0 0 0 16 3.542a6.658 6.658 0 0 1-1.889.518 3.301 3.301 0 0 0 1.447-1.817 6.533 6.533 0 0 1-2.087.793A3.286 3.286 0 0 0 7.875 6.03a9.325 9.325 0 0 1-6.767-3.429 3.289 3.289 0 0 0 1.018 4.382A3.323 3.323 0 0 1 .64 6.575v.045a3.288 3.288 0 0 0 2.632 3.218 3.203 3.203 0 0 1-.865.115 3.23 3.23 0 0 1-.614-.057 3.283 3.283 0 0 0 3.067 2.277A6.588 6.588 0 0 1 .78 13.58a6.32 6.32 0 0 1-.78-.045A9.344 9.344 0 0 0 5.026 15z" />
+                                    </svg>
+                                </a>
+                            </div>
+                        </div>
+
+                        <!-- Contact Info - Enhanced with visual elements -->
+                        <div class="bg-white p-6 rounded-xl shadow-soft">
+                            <h3 class="text-base font-semibold mb-4 text-textPrimary border-b border-muted pb-2">Contact
+                                Us</h3>
+                            <ul class="space-y-4 text-sm">
+                                <li class="flex items-start">
+                                    <div class="contact-icon-wrapper">
+                                        <svg xmlns="http://www.w3.org/2000/svg"
+                                            class="h-5 w-5 text-primary flex-shrink-0" viewBox="0 0 24 24" fill="none"
+                                            stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                            stroke-linejoin="round">
+                                            <path
+                                                d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z">
+                                            </path>
+                                            <polyline points="22,6 12,13 2,6"></polyline>
+                                        </svg>
+                                    </div>
+                                    <div>
+                                        <p class="font-medium text-textPrimary">Email Us</p>
+                                        <span class="text-textMuted">therecipespot5@gmail.com</span>
+                                    </div>
+                                </li>
+                                <li class="flex items-start">
+                                    <div class="contact-icon-wrapper">
+                                        <svg xmlns="http://www.w3.org/2000/svg"
+                                            class="h-5 w-5 text-primary flex-shrink-0" viewBox="0 0 24 24" fill="none"
+                                            stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                            stroke-linejoin="round">
+                                            <circle cx="12" cy="12" r="3" />
+                                            <path d="M18 8l3 3-3 3" />
+                                            <path d="M6 8l-3 3 3 3" />
+                                            <path d="M15 5l-3 3" />
+                                            <path d="M9 19l3-3" />
+                                        </svg>
+                                    </div>
+                                    <div>
+                                        <p class="font-medium text-textPrimary">Follow Us</p>
+                                        <span class="text-textMuted">Coming soon on Social Media</span>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- Development Team Section - Enhanced with cards -->
+                    <div class="team-section">
+                        <h3 class="text-xl font-semibold mb-6 text-center text-textPrimary heading-font">Our Development
+                            Team</h3>
+
+                        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                            <!-- Developer 1 -->
+                            <div class="team-card bg-white rounded-xl p-5 flex flex-col items-center">
+                                <div class="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mb-3">
+                                    <span class="text-primary text-xl font-semibold">MH</span>
+                                </div>
+                                <h4 class="font-medium text-textPrimary text-lg">Muhammad Hammad</h4>
+                                <p class="text-textMuted text-sm mt-1 mb-3">Developer</p>
+                                <div class="flex space-x-4 mt-1">
+                                    <a href="https://github.com/hamx05" target="_blank"
+                                        class="text-textMuted hover:text-primary transition-colors duration-300">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20"
+                                            viewBox="0 0 24 24" fill="currentColor">
+                                            <path
+                                                d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z" />
+                                        </svg>
+                                    </a>
+                                    <a href="https://www.linkedin.com/in/hamx05/" target="_blank"
+                                        class="text-textMuted hover:text-primary transition-colors duration-300">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20"
+                                            viewBox="0 0 24 24" fill="currentColor">
+                                            <path
+                                                d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z" />
+                                        </svg>
+                                    </a>
+                                </div>
+                            </div>
+
+                            <!-- Developer 2 -->
+                            <div class="team-card bg-white rounded-xl p-5 flex flex-col items-center">
+                                <div class="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mb-3">
+                                    <span class="text-primary text-xl font-semibold">FS</span>
+                                </div>
+                                <h4 class="font-medium text-textPrimary text-lg">Fakeha Shakeel</h4>
+                                <p class="text-textMuted text-sm mt-1 mb-3">Developer</p>
+                                <div class="flex space-x-4 mt-1">
+                                    <a href="https://github.com/FakehaShakeel" target="_blank"
+                                        class="text-textMuted hover:text-primary transition-colors duration-300">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20"
+                                            viewBox="0 0 24 24" fill="currentColor">
+                                            <path
+                                                d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z" />
+                                        </svg>
+                                    </a>
+                                    <a href="https://www.linkedin.com/in/fakeha-shakeel-123900293/" target="_blank"
+                                        class="text-textMuted hover:text-primary transition-colors duration-300">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20"
+                                            viewBox="0 0 24 24" fill="currentColor">
+                                            <path
+                                                d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z" />
+                                        </svg>
+                                    </a>
+                                </div>
+                            </div>
+
+                            <!-- Developer 3 -->
+                            <div class="team-card bg-white rounded-xl p-5 flex flex-col items-center">
+                                <div class="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mb-3">
+                                    <span class="text-primary text-xl font-semibold">MN</span>
+                                </div>
+                                <h4 class="font-medium text-textPrimary text-lg">Mishaal Naveen</h4>
+                                <p class="text-textMuted text-sm mt-1 mb-3">Developer</p>
+                                <div class="flex space-x-4 mt-1">
+                                    <a href="https://github.com/MishaalNaveen" target="_blank"
+                                        class="text-textMuted hover:text-primary transition-colors duration-300">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20"
+                                            viewBox="0 0 24 24" fill="currentColor">
+                                            <path
+                                                d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z" />
+                                        </svg>
+                                    </a>
+                                    <a href="https://www.linkedin.com/in/mishaal-n/" target="_blank"
+                                        class="text-textMuted hover:text-primary transition-colors duration-300">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20"
+                                            viewBox="0 0 24 24" fill="currentColor">
+                                            <path
+                                                d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z" />
+                                        </svg>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Copyright Section - Enhanced with decorative elements -->
+                    <div class="copyright-divider relative border-t border-gray-100 pt-6 text-center">
+                        <div class="copyright-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                stroke-linejoin="round">
+                                <path
+                                    d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z">
+                                </path>
+                            </svg>
+                        </div>
+                        <p class="text-sm text-textMuted mt-4">© 2025 The Recipe Spot. All rights reserved.</p>
+                        <p class="text-sm text-textMuted mt-1">Made with ♥ by The Recipe Spot Team</p>
+                    </div>
+                </div>
+            </footer>
+        </main>
+    </div>
+
+    <script src="../scripts/index.js"></script>
+
+</body>
+
+</html>

@@ -1,0 +1,103 @@
+body {
+  font-family: 'Poppins', sans-serif;
+  background-color: #FFFAF5;
+  color: #2D2013;
+}
+
+.heading-font {
+  font-family: 'Playfair Display', serif;
+}
+
+.btn-primary {
+  background: linear-gradient(to right, #FF7D45, #FF6B2B);
+  color: white;
+  font-weight: 500;
+  box-shadow: 0 4px 14px rgba(255, 125, 69, 0.4);
+  transition: all 0.3s ease;
+}
+
+.btn-primary:hover {
+  background: linear-gradient(to right, #FF6B2B, #E85F25);
+  box-shadow: 0 6px 18px rgba(255, 125, 69, 0.6);
+  transform: translateY(-2px);
+}
+
+.btn-outline {
+  border: 1px solid #FF7D45;
+  color: #FF7D45;
+  background-color: transparent;
+  transition: all 0.3s ease;
+}
+
+.btn-outline:hover {
+  background-color: #FF7D45;
+  color: white;
+  transform: translateY(-2px);
+}
+
+.form-input {
+  width: 100%;
+  padding: 0.75rem 1rem;
+  border-radius: 0.5rem;
+  border: 1px solid #e2d5c3;
+  background-color: white;
+  color: #2D2013;
+  transition: all 0.3s ease;
+}
+
+.form-input:focus {
+  outline: none;
+  border-color: #FF7D45;
+  box-shadow: 0 0 0 3px rgba(255, 125, 69, 0.2);
+}
+
+.form-input.error {
+  border-color: #e53e3e;
+}
+
+.error-message {
+  color: #e53e3e;
+  font-size: 0.875rem;
+  margin-top: 0.25rem;
+}
+
+.label {
+  display: block;
+  font-size: 0.875rem;
+  font-weight: 500;
+  margin-bottom: 0.5rem;
+}
+
+.card {
+  background: white;
+  border-radius: 1.5rem;
+  padding: 2.5rem;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+}
+
+.pattern-bg {
+  background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23FF7D45' fill-opacity='0.05'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+}
+
+/* Flash message animation */
+@keyframes slideDown {
+  from {
+    transform: translateY(-20px);
+    opacity: 0;
+  }
+
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+.flash-message {
+  animation: slideDown 0.3s ease-out forwards;
+}

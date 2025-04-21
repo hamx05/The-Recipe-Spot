@@ -1,0 +1,331 @@
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: #FFFAF5;
+    color: #2D2013;
+}
+
+.heading-font {
+    font-family: 'Playfair Display', serif;
+}
+
+.btn-primary {
+    background: linear-gradient(to right, #FF7D45, #FF6B2B);
+    color: white;
+    font-weight: 500;
+    box-shadow: 0 4px 14px rgba(255, 125, 69, 0.4);
+    transition: all 0.3s ease;
+}
+
+.btn-primary:hover {
+    background: linear-gradient(to right, #FF6B2B, #E85F25);
+    box-shadow: 0 6px 18px rgba(255, 125, 69, 0.6);
+    transform: translateY(-2px);
+}
+
+.btn-outline {
+    border: 1px solid #FF7D45;
+    color: #FF7D45;
+    background-color: transparent;
+    transition: all 0.3s ease;
+}
+
+.btn-outline:hover {
+    background-color: #FF7D45;
+    color: white;
+    transform: translateY(-2px);
+}
+
+.feature-card {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.feature-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+}
+
+.pattern-bg {
+    background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23FF7D45' fill-opacity='0.05'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+}
+
+/* Enhanced Slideshow styles */
+.slideshow-container {
+    position: relative;
+    overflow: hidden;
+    border-radius: 1.5rem;
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+}
+
+.slide {
+    display: none;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    opacity: 0;
+    transition: opacity 0.8s ease-in-out;
+}
+
+.slide.active {
+    display: block;
+    opacity: 1;
+    z-index: 1;
+}
+
+.slide img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.slide-content {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 1.5rem;
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.7) 0%, rgba(0, 0, 0, 0) 100%);
+    color: white;
+    z-index: 2;
+}
+
+.slide-nav {
+    position: absolute;
+    bottom: 15px;
+    left: 0;
+    right: 0;
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+    z-index: 3;
+}
+
+.slide-dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background-color: rgba(255, 255, 255, 0.5);
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.slide-dot.active {
+    background-color: white;
+    transform: scale(1.2);
+}
+
+.slide-arrow {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 40px;
+    height: 40px;
+    background-color: rgba(255, 255, 255, 0.7);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    z-index: 10;
+    transition: all 0.3s ease;
+    opacity: 0.7;
+}
+
+.slide-arrow:hover {
+    background-color: rgba(255, 255, 255, 0.9);
+    opacity: 1;
+    transform: translateY(-50%) scale(1.1);
+}
+
+.slide-arrow.prev {
+    left: 10px;
+}
+
+.slide-arrow.next {
+    right: 10px;
+}
+
+.slideshow-progress {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    height: 3px;
+    background-color: rgba(255, 125, 69, 0.7);
+    width: 0%;
+    z-index: 3;
+    transition: width 0.1s linear;
+}
+
+/* Food category cards */
+.category-card {
+    position: relative;
+    overflow: hidden;
+    border-radius: 1rem;
+    transition: transform 0.3s ease;
+}
+
+.category-card:hover {
+    transform: translateY(-5px);
+}
+
+.category-card img {
+    transition: transform 0.5s ease;
+}
+
+.category-card:hover img {
+    transform: scale(1.05);
+}
+
+.category-overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.7) 0%, rgba(0, 0, 0, 0) 100%);
+    padding: 2rem 1rem 1rem;
+}
+
+/* ENHANCED FOOTER STYLES - ADDED */
+.footer-gradient {
+    background-image: linear-gradient(to bottom, #ffffff, #f8f3ec);
+}
+
+.team-card {
+    transition: all 0.3s ease;
+    border: 1px solid rgba(245, 233, 217, 0.5);
+}
+
+.team-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.08);
+}
+
+.contact-icon-wrapper {
+    width: 42px;
+    height: 42px;
+    border-radius: 50%;
+    background-color: rgba(255, 125, 69, 0.1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 14px;
+}
+
+.team-section {
+    position: relative;
+    border-radius: 16px;
+    background: linear-gradient(to right, rgba(245, 233, 217, 0.3), rgba(245, 233, 217, 0.1));
+    padding: 2.5rem 1.5rem;
+    margin-bottom: 2rem;
+}
+
+.team-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(to right, rgba(255, 125, 69, 0.2), rgba(255, 125, 69, 0.05));
+    border-top-left-radius: 16px;
+    border-top-right-radius: 16px;
+}
+
+.social-icon {
+    width: 36px;
+    height: 36px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    background-color: #f5e9d9;
+    color: #8a7a6d;
+    transition: all 0.3s ease;
+}
+
+.social-icon:hover {
+    background-color: #FF7D45;
+    color: white;
+    transform: translateY(-3px);
+}
+
+.copyright-divider {
+    position: relative;
+}
+
+.copyright-divider::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%) translateY(-50%);
+    width: 60px;
+    height: 30px;
+    background-color: white;
+    border-radius: 30px;
+    border: 1px solid #f5e9d9;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.copyright-icon {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%) translateY(-50%);
+    color: #FF7D45;
+    background-color: white;
+    padding: 8px;
+    border-radius: 50%;
+    overflow: hidden;
+    /* necessary for the animation fill */
+}
+
+.copyright-icon svg {
+    position: relative;
+    z-index: 2;
+    stroke: #FF7D45;
+    fill: none;
+    transition: fill 0.3s ease;
+}
+
+/* Animated fill layer */
+.copyright-icon::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 0%;
+    background-color: #FF7D45;
+    z-index: 1;
+    transition: width 0.4s ease;
+}
+
+.copyright-icon:hover::before {
+    width: 100%;
+}
+
+/* Keep icon visible with contrast */
+.copyright-icon:hover svg {
+    fill: white;
+}
+
+/* Flash message animation */
+@keyframes slideDown {
+    from {
+        transform: translateY(-20px);
+        opacity: 0;
+    }
+
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+.flash-message {
+    animation: slideDown 0.3s ease-out forwards;
+}

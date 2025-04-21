@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Profile - The Recipe Spot</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Poppins:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+    <link rel="icon" type="image/png" href="../public/images/favicon.png">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#FF7D45',
+                        primaryDark: '#E85F25',
+                        primaryLight: '#FFA07A',
+                        secondary: '#f8e3c5',
+                        background: '#FFFAF5',
+                        muted: '#f5e9d9',
+                        textPrimary: '#2D2013',
+                        textMuted: '#8a7a6d',
+                        destructive: '#e53e3e',
+                        starFilled: '#FF7D45',
+                        starEmpty: '#e2d5c3',
+                        success: '#10b981'
+                    },
+                    fontFamily: {
+                        sans: ['Poppins', 'sans-serif'],
+                        display: ['"Playfair Display"', 'serif']
+                    },
+                    boxShadow: {
+                        'soft': '0 10px 25px rgba(0, 0, 0, 0.05)',
+                        'hover': '0 15px 30px rgba(0, 0, 0, 0.1)'
+                    }
+                }
+            }
+        }
+    </script>
+    <link rel="stylesheet" href="../public/styles/user-profile.css">
+
+</head>
+
+<body>
+    <div class="min-h-screen flex flex-col bg-background">
+        <!-- Header -->
+        <header class="bg-white border-b border-gray-100 sticky top-0 z-10 shadow-sm">
+            <div class="container mx-auto px-4 py-4 flex justify-between items-center">
+                <a href="home.html" class="flex items-center space-x-2 text-2xl font-bold text-primary heading-font">
+                    <img src="../public/images/favicon.png" alt="The Recipe Spot Logo" class="w-8 h-8">
+                    <span>The Recipe Spot</span>
+                </a>
+                <div class="profile-dropdown">
+                    <div class="flex items-center space-x-3 cursor-pointer">
+                        <span id="username-display" class="text-sm font-medium hidden sm:inline-block">User</span>
+                        <div id="profile-image"
+                            class="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center text-primary font-semibold border-2 border-primary/20">
+                            U</div>
+                    </div>
+                    <div class="dropdown-content">
+                        <a href="home.html" class="dropdown-item">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24"
+                                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                stroke-linejoin="round" class="mr-3 text-primary">
+                                <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+                                <polyline points="9 22 9 12 15 12 15 22"></polyline>
+                            </svg>
+                            Home
+                        </a>
+                        <a href="#" id="profile-link" class="dropdown-item">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24"
+                                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                stroke-linejoin="round" class="mr-3 text-primary">
+                                <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                                <circle cx="12" cy="7" r="4"></circle>
+                            </svg>
+                            Profile
+                        </a>
+                        <a href="dashboard.html" class="dropdown-item">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24"
+                                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                stroke-linejoin="round" class="mr-3 text-primary">
+                                <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
+                                <line x1="3" y1="9" x2="21" y2="9"></line>
+                                <line x1="9" y1="21" x2="9" y2="9"></line>
+                            </svg>
+                            Dashboard
+                        </a>
+                        <a href="create-recipe.html" class="dropdown-item">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24"
+                                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                stroke-linejoin="round" class="mr-3 text-primary">
+                                <path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"></path>
+                                <path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"></path>
+                            </svg>
+                            Create Recipe
+                        </a>
+                        <div class="border-t border-gray-100 my-1"></div>
+                        <a href="#" class="dropdown-item text-destructive" onclick="logout()">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24"
+                                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                stroke-linejoin="round" class="mr-3">
+                                <path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"></path>
+                                <polyline points="16 17 21 12 16 7"></polyline>
+                                <line x1="21" y1="12" x2="9" y2="12"></line>
+                            </svg>
+                            Sign Out
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <!-- Main Content -->
+        <main class="flex-1 container mx-auto px-4 py-8">
+            <!-- Flash Message Container -->
+            <div id="flash-message" class="hidden flash-message rounded-md p-4 mb-6"></div>
+
+            <!-- Back Button and Title -->
+            <div class="flex flex-col md:flex-row justify-between items-start md:items-center gap-4 mb-8">
+                <div>
+                    <a href="javascript:history.back()"
+                        class="text-primary hover:text-primaryDark transition-colors duration-300 flex items-center mb-4">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                            class="mr-1">
+                            <path d="m12 19-7-7 7-7"></path>
+                            <path d="M19 12H5"></path>
+                        </svg>
+                        Back
+                    </a>
+                    <h1 class="text-3xl font-bold text-textPrimary heading-font" id="profile-title">User Profile</h1>
+                    <p class="text-textMuted" id="profile-subtitle">Recipes by this user</p>
+                </div>
+            </div>
+
+            <!-- User Profile Section -->
+            <div class="bg-white rounded-xl shadow-soft p-6 mb-8 pattern-bg">
+                <div class="flex flex-col sm:flex-row items-center sm:items-start gap-6">
+                    <div id="profile-avatar"
+                        class="w-24 h-24 rounded-full bg-primary/20 flex items-center justify-center text-primary text-3xl font-bold">
+                        U
+                    </div>
+                    <div class="text-center sm:text-left">
+                        <h2 id="profile-username" class="text-2xl font-bold heading-font text-textPrimary">Username</h2>
+                        <p id="recipe-count" class="text-textMuted mt-1">0 recipes shared</p>
+
+                    </div>
+                </div>
+            </div>
+
+            <!-- Loading State -->
+            <div id="loading-state" class="text-center py-12">
+                <div class="inline-block animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-primary">
+                </div>
+                <p class="mt-4 text-textMuted">Loading recipes...</p>
+            </div>
+
+            <!-- Error State -->
+            <div id="error-state" class="hidden text-center py-12">
+                <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none"
+                    stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                    class="mx-auto mb-4 text-destructive">
+                    <circle cx="12" cy="12" r="10"></circle>
+                    <line x1="12" y1="8" x2="12" y2="12"></line>
+                    <line x1="12" y1="16" x2="12.01" y2="16"></line>
+                </svg>
+                <h2 class="text-xl font-semibold mb-2 heading-font">Failed to load user profile</h2>
+                <p id="error-message" class="text-textMuted mb-6">An error occurred while loading the user profile.</p>
+                <button onclick="window.location.reload()"
+                    class="btn-primary px-6 py-2 rounded-full text-sm font-medium inline-flex items-center">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none"
+                        stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                        class="mr-2">
+                        <path d="M21 2v6h-6"></path>
+                        <path d="M3 12a9 9 0 0 1 15-6.7L21 8"></path>
+                        <path d="M3 22v-6h6"></path>
+                        <path d="M21 12a9 9 0 0 1-15 6.7L3 16"></path>
+                    </svg>
+                    Try Again
+                </button>
+            </div>
+
+            <!-- Empty State -->
+            <div id="empty-state" class="hidden text-center py-12 bg-white rounded-xl shadow-soft">
+                <svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="0 0 24 24" fill="none"
+                    stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"
+                    class="mx-auto mb-6 text-textMuted">
+                    <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                    <polyline points="14 2 14 8 20 8"></polyline>
+                    <line x1="16" y1="13" x2="8" y2="13"></line>
+                    <line x1="16" y1="17" x2="8" y2="17"></line>
+                    <polyline points="10 9 9 9 8 9"></polyline>
+                </svg>
+                <h2 class="text-2xl font-semibold mb-2 heading-font">No recipes yet</h2>
+                <p class="text-textMuted mb-6 max-w-md mx-auto">You have not shared any recipes yet. Create a recipe or
+                    explore other recipes.</p>
+                <a href="create-recipe.html"
+                    class="btn-primary px-6 py-3 rounded-full text-sm font-medium inline-flex items-center">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none"
+                        stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                        class="mr-2">
+                        <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+                        <polyline points="9 22 9 12 15 12 15 22"></polyline>
+                    </svg>
+                    Create Recipe
+                </a>
+                <a href="home.html"
+                    class="btn-primary px-6 py-3 rounded-full text-sm font-medium inline-flex items-center">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none"
+                        stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                        class="mr-2">
+                        <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+                        <polyline points="9 22 9 12 15 12 15 22"></polyline>
+                    </svg>
+                    Explore Recipes
+                </a>
+            </div>
+
+            <!-- Recipe Grid -->
+            <div id="recipes-grid" class="hidden grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <!-- Recipe cards will be inserted here by JavaScript -->
+            </div>
+        </main>
+
+        <!-- Footer -->
+        <footer class="w-full border-t border-gray-100 py-5 bg-white">
+            <div class="container mx-auto px-4 md:px-6">
+                <div class="flex flex-col items-center justify-center gap-3">
+                    <div class="flex items-center justify-center">
+                        <div class="h-px w-12 bg-gray-200"></div>
+                        <span class="mx-3 text-primary text-lg">♥</span>
+                        <div class="h-px w-12 bg-gray-200"></div>
+                    </div>
+                    <p class="text-sm text-textMuted">
+                        <span class="inline-block">© 2025 The Recipe Spot.</span>
+                        <span class="inline-block">Made with love by</span>
+                    </p>
+                    <div class="flex flex-wrap items-center justify-center gap-x-3 gap-y-1">
+                        <a href="https://www.linkedin.com/in/hamx05" target="_blank" rel="noopener noreferrer"
+                            class="text-sm text-primary hover:text-primaryDark transition-colors duration-300 font-medium">Muhammad
+                            Hammad</a>
+                        <span class="text-textMuted">•</span>
+                        <a href="https://www.linkedin.com/in/fakeha-shakeel-123900293/" target="_blank"
+                            rel="noopener noreferrer"
+                            class="text-sm text-primary hover:text-primaryDark transition-colors duration-300 font-medium">Fakeha
+                            Shakeel</a>
+                        <span class="text-textMuted">•</span>
+                        <a href="https://www.linkedin.com/in/mishaal-n/" target="_blank" rel="noopener noreferrer"
+                            class="text-sm text-primary hover:text-primaryDark transition-colors duration-300 font-medium">Mishaal
+                            Naveen</a>
+                    </div>
+                </div>
+            </div>
+        </footer>
+    </div>
+
+    <!-- Recipe Card Template -->
+    <template id="recipe-template">
+        <div class="recipe-card h-full flex flex-col">
+            <div class="relative overflow-hidden">
+                <img src="/placeholder.svg" alt=""
+                    class="recipe-image w-full h-48 object-cover transition-transform duration-500 hover:scale-105">
+                <div class="absolute top-3 right-3">
+                    <span
+                        class="inline-flex items-center px-2 py-1 rounded-full text-xs font-medium bg-white/80 text-primary">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                            class="mr-1">
+                            <circle cx="12" cy="12" r="10"></circle>
+                            <polyline points="12 6 12 12 16 14"></polyline>
+                        </svg>
+                        <span class="cook-time">30 min</span>
+                    </span>
+                </div>
+            </div>
+            <div class="p-5 flex-1 flex flex-col">
+                <h2 class="recipe-title text-xl font-bold mb-2 heading-font text-textPrimary line-clamp-2"></h2>
+                <div class="flex items-center mb-3">
+                    <div class="star-rating mr-2"></div>
+                    <span class="text-sm text-textMuted rating-text"></span>
+                </div>
+                <p class="recipe-description text-textMuted mb-4 flex-1 line-clamp-3"></p>
+                <div class="flex justify-between items-center mb-4">
+                    <div class="flex items-center space-x-2">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                            class="text-primary">
+                            <path
+                                d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z">
+                            </path>
+                        </svg>
+                        <span class="like-count">0</span>
+                    </div>
+                    <div class="flex items-center space-x-2">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                            class="text-primary">
+                            <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
+                        </svg>
+                        <span class="comment-count">0</span>
+                    </div>
+                </div>
+                <a href="#"
+                    class="view-recipe-btn btn-outline w-full py-2 rounded-full text-center text-sm font-medium">
+                    View Recipe
+                </a>
+            </div>
+        </div>
+    </template>
+
+    <script src="../scripts/user-profile.js"></script>
+
+</body>
+
+</html>
