@@ -19,3 +19,34 @@ A simple web application that allows users to share, like, and interact with var
 First, clone the repository to your local machine:
 ```bash
 git clone https://github.com/hamx05/The-Recipe-Spot.git
+```
+
+### 2. Navigate to the project directory
+```bash
+cd The-Recipe-Spot
+```
+
+### 3. Install dependencies
+Make sure you have Node.js installed. Then, install the necessary dependencies by running:
+```bash
+npm install
+```
+
+### 4. Run the application
+To start the application in development mode:
+```bash
+node scripts/server.js
+```
+
+## Directory Structure
+```bash
+├── scripts/            # JavaScript files (including server.js)
+├── public/             # Public assets (images, etc.)
+│   └── styles/         # CSS files
+├── views/              # HTML files for views
+├── .env                # Environment variables
+├── package.json        # Project dependencies and scripts
+├── package-lock.json   # Dependency lock file
+└── README.md           # Project documentation
+```
+
