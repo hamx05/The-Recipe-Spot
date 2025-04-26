@@ -3,14 +3,19 @@
 A simple web application that allows users to share, like, and interact with various recipes.
 
 ## Features
-- User registration and login
-- Add your own recipes (with title, ingredients, and instructions)
-- Like other users' recipes
-- View and interact with posted recipes
+- **User authentication:** Secure registration and login system.
+- **Recipe sharing:** Add recipes with title, ingredients, and instructions.
+- **Interaction:** Like and comment on other users' recipes.
+- **Search & categories:** Search for recipes by keywords or filter by categories (e.g., desserts, vegetarian).
+- **Recipe images:** Upload images alongside your recipes for better presentation.
+- **User profiles:** View and manage personal profiles with posted and liked recipes.
+- **Responsive design:** Mobile-friendly layout for all devices.
+- **Sorting & filtering:** Sort recipes by likes or latest additions.
+
 
 ## Tech Stack
 - **Frontend**: HTML, CSS, JavaScript
-- **Backend**: Node.js
+- **Backend**: Node.js & Express
 - **Database**: SQLite (for local storage of recipes)
 
 ## Setup and Installation
