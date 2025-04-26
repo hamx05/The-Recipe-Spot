@@ -37,16 +37,3 @@ To start the application in development mode:
 ```bash
 node scripts/server.js
 ```
-
-## Directory Structure
-```bash
-├── scripts/            # JavaScript files (including server.js)
-├── public/             # Public assets (images, etc.)
-│   └── styles/         # CSS files
-├── views/              # HTML files for views
-├── .env                # Environment variables
-├── package.json        # Project dependencies and scripts
-├── package-lock.json   # Dependency lock file
-└── README.md           # Project documentation
-```
-
