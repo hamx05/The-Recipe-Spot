@@ -6,7 +6,7 @@ A simple web application that allows users to share, like, and interact with var
 - **User authentication:** Secure registration and login system.
 - **Recipe sharing:** Add recipes with title, ingredients, and instructions.
 - **Interaction:** Like and comment on other users' recipes.
-- **Search & categories:** Search for recipes by keywords or filter them by your preferred difficulty level (e.g., easy, medium, hard), allowing you to find the perfect recipe based on your convenience and skill.
+- **Search & categories:** Search for recipes by keywords or filter them by your preferred difficulty level (e.g., easy, medium, hard).
 - **Recipe images:** Upload images alongside your recipes for better presentation.
 - **User profiles:** View and manage personal profiles with posted and liked recipes.
 - **Responsive design:** Mobile-friendly layout for all devices.
